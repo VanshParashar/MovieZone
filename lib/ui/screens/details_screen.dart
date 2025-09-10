@@ -29,7 +29,7 @@ class _DetailsScreenState extends ConsumerState<DetailsScreen>
   bool expandedOverview = false;
   late final AnimationController _bookmarkController;
   bool _isBookmarked = false;
-  static const int _overviewReadMoreThreshold = 180;
+  static const int _overviewReadMoreThreshold = 130;
 
   @override
   void initState() {
@@ -348,16 +348,16 @@ class _DetailsScreenState extends ConsumerState<DetailsScreen>
                           SizedBox(height: 18.h),
 
                           /// Overview
-                          Text('Overview', style: TextStyle(color: Colors.white70, fontSize: 16.sp, fontWeight: FontWeight.w600)),
+                          Text('Overview', style: TextStyle(color: Colors.white70, fontSize: 18.sp, fontWeight: FontWeight.w600)),
                           SizedBox(height: 8.h),
                           AnimatedCrossFade(
                             duration: const Duration(milliseconds: 250),
-                            firstChild: Text(m.overview ?? 'No overview available.', maxLines: 4, overflow: TextOverflow.ellipsis, style: TextStyle(color: muted, fontSize: 13.sp)),
-                            secondChild: Text(m.overview ?? 'No overview available.', style: TextStyle(color: muted, fontSize: 13.sp)),
+                            firstChild: Text(m.overview ?? 'No overview available.', maxLines: 4, overflow: TextOverflow.ellipsis, style: TextStyle(color: muted, fontSize: 15.sp)),
+                            secondChild: Text(m.overview ?? 'No overview available.', style: TextStyle(color: muted, fontSize: 15.sp)),
                             crossFadeState: expandedOverview ? CrossFadeState.showSecond : CrossFadeState.showFirst,
                           ),
                           if ((m.overview ?? '').length > _overviewReadMoreThreshold)
-                            Align(alignment: Alignment.centerRight, child: TextButton(onPressed: () => setState(() => expandedOverview = !expandedOverview), child: Text(expandedOverview ? 'Show less' : 'Read more', style: TextStyle(color: accent, fontSize: 13.sp)))),
+                            Align(alignment: Alignment.centerRight, child: TextButton(onPressed: () => setState(() => expandedOverview = !expandedOverview), child: Text(expandedOverview ? 'Show less' : 'Read more', style: TextStyle(color: accent, fontSize: 16.sp)))),
 
                           SizedBox(height: 8.h),
 
@@ -371,13 +371,13 @@ class _DetailsScreenState extends ConsumerState<DetailsScreen>
 
                           SizedBox(height: 16.h),
 
-                          if (m.genres.isNotEmpty) Text('Genres', style: TextStyle(color: Colors.white70, fontSize: 16.sp, fontWeight: FontWeight.w600)),
+                          if (m.genres.isNotEmpty) Text('Genres', style: TextStyle(color: Colors.white70, fontSize: 18.sp, fontWeight: FontWeight.w600)),
                           SizedBox(height: 6.h),
-                          Wrap(spacing: 8.w, children: m.genres.map((g) => Chip(label: Text(g.name, style: TextStyle(color: Colors.white, fontSize: 12.sp)), backgroundColor: chipBg)).toList()),
+                          Wrap(spacing: 10.w, children: m.genres.map((g) => Chip(label: Text(g.name, style: TextStyle(color: Colors.white, fontSize: 16.sp)), backgroundColor: chipBg)).toList()),
 
                           SizedBox(height: 12.h),
 
-                          if (m.productionCompanies.isNotEmpty) Text('Production', style: TextStyle(color: Colors.white70, fontSize: 16.sp, fontWeight: FontWeight.w600)),
+                          if (m.productionCompanies.isNotEmpty) Text('Production', style: TextStyle(color: Colors.white70, fontSize: 18.sp, fontWeight: FontWeight.w600)),
                           SizedBox(height: 6.h),
                           Column(mainAxisSize: MainAxisSize.min, children: m.productionCompanies.map((pc) {
                             return Container(
@@ -385,8 +385,8 @@ class _DetailsScreenState extends ConsumerState<DetailsScreen>
                               decoration: BoxDecoration(color: card, borderRadius: BorderRadius.circular(12.r)),
                               child: ListTile(
                                 leading: pc.logo_path != null ? CachedNetworkImage(imageUrl: '$IMAGE_BASE_URL${pc.logo_path}', width: 40.w, errorWidget: (_, __, ___) => Icon(Icons.movie, color: Colors.white, size: 20.sp)) : Icon(Icons.business, color: Colors.white, size: 20.sp),
-                                title: Text(pc.name, style: TextStyle(color: Colors.white, fontSize: 14.sp)),
-                                subtitle: pc.origin_country != null ? Text(pc.origin_country!, style: TextStyle(color: Colors.white60, fontSize: 12.sp)) : null,
+                                title: Text(pc.name, style: TextStyle(color: Colors.white, fontSize: 18.sp)),
+                                subtitle: pc.origin_country != null ? Text(pc.origin_country!, style: TextStyle(color: Colors.white60, fontSize: 15.sp)) : null,
                               ),
                             );
                           }).toList()),
@@ -394,16 +394,16 @@ class _DetailsScreenState extends ConsumerState<DetailsScreen>
                           SizedBox(height: 12.h),
 
                           Row(children: [
-                            if (m.budget != 0) Text('Budget: ${_formatCurrency(m.budget)}', style: TextStyle(fontWeight: FontWeight.w600, color: Colors.white, fontSize: 13.sp)),
+                            if (m.budget != 0) Text('Budget: ${_formatCurrency(m.budget)}', style: TextStyle(fontWeight: FontWeight.w600, color: Colors.white, fontSize: 16.sp)),
                             SizedBox(width: 12.w),
-                            if (m.revenue != 0) Text('Revenue: ${_formatCurrency(m.revenue)}', style: TextStyle(fontWeight: FontWeight.w600, color: Colors.white, fontSize: 13.sp)),
+                            if (m.revenue != 0) Text('Revenue: ${_formatCurrency(m.revenue)}', style: TextStyle(fontWeight: FontWeight.w600, color: Colors.white, fontSize: 16.sp)),
                           ]),
 
                           SizedBox(height: 16.h),
 
                           if (m.spokenLanguages.isNotEmpty) Text('Languages', style: TextStyle(color: Colors.white70, fontSize: 16.sp, fontWeight: FontWeight.w600)),
                           SizedBox(height: 6.h),
-                          Wrap(spacing: 8.w, children: m.spokenLanguages.map((l) => Chip(label: Text(l.englishName, style: TextStyle(color: Colors.white, fontSize: 12.sp)), backgroundColor: chipBg)).toList()),
+                          Wrap(spacing: 10.w, children: m.spokenLanguages.map((l) => Chip(label: Text(l.englishName, style: TextStyle(color: Colors.white, fontSize: 16.sp)), backgroundColor: chipBg)).toList()),
 
                           SizedBox(height: 28.h),
                         ],

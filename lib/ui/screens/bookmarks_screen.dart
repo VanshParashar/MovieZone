@@ -86,8 +86,8 @@ class BookmarkScreen extends ConsumerWidget {
                         imageUrl: m.posterPath != null
                             ? '$IMAGE_BASE_URL${m.posterPath}'
                             : '',
-                        width: 72.w,
-                        height: 108.h,
+                        width: 105.w,
+                        height: 120.h,
                         fit: BoxFit.cover,
                         placeholder: (_, __) => Container(
                           width: 72.w,
@@ -95,8 +95,8 @@ class BookmarkScreen extends ConsumerWidget {
                           color: Colors.grey[800],
                         ),
                         errorWidget: (_, __, ___) => Container(
-                          width: 72.w,
-                          height: 108.h,
+                          width: 105.w,
+                          height: 120.h,
                           color: Colors.grey[800],
                           child: const Icon(Icons.broken_image,
                               color: Colors.white54),
@@ -112,10 +112,10 @@ class BookmarkScreen extends ConsumerWidget {
                             m.title,
                             style: TextStyle(
                               color: Colors.white,
-                              fontSize: 16.sp,
+                              fontSize: 18.sp,
                               fontWeight: FontWeight.bold,
                             ),
-                            maxLines: 2,
+                            maxLines: 1,
                             overflow: TextOverflow.ellipsis,
                           ),
                           SizedBox(height: 6.h),
@@ -128,7 +128,7 @@ class BookmarkScreen extends ConsumerWidget {
                                 '${(m.voteAverage ?? 0).toStringAsFixed(1)}/10',
                                 style: TextStyle(
                                   color: Colors.white70,
-                                  fontSize: 12.sp,
+                                  fontSize: 14.sp,
                                 ),
                               ),
                             ],
@@ -138,7 +138,7 @@ class BookmarkScreen extends ConsumerWidget {
                             m.releaseDate ?? '',
                             style: TextStyle(
                               color: Colors.white60,
-                              fontSize: 12.sp,
+                              fontSize: 14.sp,
                             ),
                           ),
                         ],
@@ -146,7 +146,7 @@ class BookmarkScreen extends ConsumerWidget {
                     ),
                     IconButton(
                       icon: Icon(Icons.delete_outline,
-                          color: Colors.white, size: 20.sp),
+                          color: Colors.white, size: 25.sp),
                       onPressed: () async {
                         // remove from bookmarks
                         await ref.read(bookmarkVMProvider.notifier).toggleBookmark(m.id);

@@ -40,7 +40,7 @@ class MyApp extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final color = Colors.indigo;
     return ScreenUtilInit(
-        designSize: const Size(390, 844), // design size (iPhone 12 like). Change if you used another design.
+        designSize: const Size(480, 800), // design size (iPhone 12 like). Change if you used another design.
         minTextAdapt: true,
         splitScreenMode: true,
         builder: (context, child) {

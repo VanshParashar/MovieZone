@@ -104,7 +104,7 @@ class SearchScreen extends ConsumerWidget {
                           style: TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.w600,
-                            fontSize: 13.sp,
+                            fontSize: 16.sp,
                           ),
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
@@ -116,7 +116,7 @@ class SearchScreen extends ConsumerWidget {
                               : '',
                           style: TextStyle(
                             color: Colors.white70,
-                            fontSize: 11.sp,
+                            fontSize: 13.sp,
                           ),
                         ),
                       ],

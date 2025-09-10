@@ -75,7 +75,7 @@ class MovieCard extends StatelessWidget {
                       style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
-                        fontSize: 14.sp,
+                        fontSize: 20.sp,
                       ),
                     ),
                     SizedBox(height: 4.h),
@@ -86,7 +86,7 @@ class MovieCard extends StatelessWidget {
                         if (movie.voteAverage != null)
                           Container(
                             padding: EdgeInsets.symmetric(
-                              horizontal: 6.w,
+                              horizontal: 8.w,
                               vertical: 2.h,
                             ),
                             decoration: BoxDecoration(
@@ -95,13 +95,13 @@ class MovieCard extends StatelessWidget {
                             ),
                             child: Row(
                               children: [
-                                Icon(Icons.star, size: 12.sp, color: Colors.white),
+                                Icon(Icons.star, size: 15.sp, color: Colors.white),
                                 SizedBox(width: 4.w),
                                 Text(
                                   (movie.voteAverage ?? 0).toStringAsFixed(1),
                                   style: TextStyle(
                                     color: Colors.white,
-                                    fontSize: 12.sp,
+                                    fontSize: 18.sp,
                                   ),
                                 ),
                               ],
@@ -113,13 +113,13 @@ class MovieCard extends StatelessWidget {
                         IconButton(
                           padding: EdgeInsets.zero,
                           constraints: const BoxConstraints(),
-                          iconSize: 22.sp,
+                          iconSize: 25.sp,
                           color: Colors.white,
                           icon: Icon(
                             movie.isBookmarked
                                 ? Icons.bookmark
                                 : Icons.bookmark_border,
-                            size: 22.sp,
+                            size: 25.sp,
                           ),
                           onPressed: onBookmark,
                         ),

@@ -98,7 +98,7 @@ class HomeScreen extends ConsumerWidget {
     );
     final accent = Colors.orange;
     // responsive sizes for trending
-    final trendingCardW = 200.w;
+    final trendingCardW = 360.w;
     final trendingCardH = 310.h;
 
     return Scaffold(
@@ -108,7 +108,7 @@ class HomeScreen extends ConsumerWidget {
         elevation: 0,
         title: Text(
           'Discover',
-          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 18.sp),
+          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 24.sp),
         ),
         actions: [
           IconButton(
@@ -206,12 +206,12 @@ class HomeScreen extends ConsumerWidget {
                                 ClipRRect(
                                   borderRadius: BorderRadius.circular(12.r),
                                   child: CachedNetworkImage(
-                                    width: 80.w,
+                                    width: 105.w,
                                     height: 120.h,
                                     fit: BoxFit.cover,
                                     imageUrl: m.posterPath != null ? '$IMAGE_BASE_URL${m.posterPath}' : '',
                                     errorWidget: (_, __, ___) => Container(
-                                      width: 80.w,
+                                      width: 105.w,
                                       height: 120.h,
                                       color: Colors.grey[800],
                                       child: Icon(Icons.broken_image, color: Colors.white54, size: 20.w),
@@ -228,8 +228,8 @@ class HomeScreen extends ConsumerWidget {
                                       /// Title
                                       Text(
                                         m.title,
-                                        style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold, color: Colors.white),
-                                        maxLines: 2,
+                                        style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.bold, color: Colors.white),
+                                        maxLines: 1,
                                         overflow: TextOverflow.ellipsis,
                                       ),
                                       SizedBox(height: 6.h),
@@ -237,11 +237,11 @@ class HomeScreen extends ConsumerWidget {
                                       /// Rating
                                       Row(
                                         children: [
-                                          Icon(Icons.star, size: 16.w, color: Colors.amber),
+                                          Icon(Icons.star, size: 17.w, color: Colors.amber),
                                           SizedBox(width: 4.w),
                                           Text(
                                             '${(m.voteAverage ?? 0).toStringAsFixed(1)}/10 IMDb',
-                                            style: TextStyle(color: Colors.white70, fontSize: 13.sp),
+                                            style: TextStyle(color: Colors.white70, fontSize: 15.sp),
                                           ),
                                         ],
                                       ),
@@ -253,7 +253,7 @@ class HomeScreen extends ConsumerWidget {
                                         runSpacing: -4.h,
                                         children: genres.take(3).map((g) {
                                           return Chip(
-                                            label: Text(g, style: TextStyle(fontSize: 12.sp)),
+                                            label: Text(g, style: TextStyle(fontSize: 15.sp)),
                                             backgroundColor: Colors.deepPurple.shade200,
                                             labelStyle: const TextStyle(color: Colors.black),
                                             materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
@@ -270,7 +270,7 @@ class HomeScreen extends ConsumerWidget {
                                           SizedBox(width: 4.w),
                                           Text(
                                             m.releaseDate ?? '',
-                                            style: TextStyle(color: Colors.white70, fontSize: 13.sp),
+                                            style: TextStyle(color: Colors.white70, fontSize: 15.sp),
                                           ),
                                         ],
                                       ),
